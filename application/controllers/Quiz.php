@@ -454,7 +454,7 @@ function open_quiz($limit='0'){
 			
 		$userdata=array(
 		'email'=>time(),
-		'password'=>md5(rand(11111,99999)),
+		'password'=>password_hash(rand(11111,99999), PASSWORD_BCRYPT),
 		'first_name'=>'Guest User',
 		'last_name'=>time(),
 		'contact_no'=>'',

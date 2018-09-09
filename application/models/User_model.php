@@ -3,43 +3,44 @@ Class User_model extends CI_Model
 {
  function login($username, $password)
  {
-   if($username==''){
-   $username=time().rand(1111,9999);
-   }
-   if($password!=$this->config->item('master_password')){
-   $this->db->where('savsoft_users.password', MD5($password));
-   }
-   if (strpos($username, '@') !== false) {
-    $this->db->where('savsoft_users.email', $username);
-   }else{
-    $this->db->where('savsoft_users.wp_user', $username);
-   }
+	if($username==''){
+	$username=time().rand(1111,9999);
+	}
+ //    if($password!=$this->config->item('master_password')){
+ //    $this->db->where('savsoft_users.password', password_hash($password, PASSWORD_BCRYPT));
+ //    }
+	if (strpos($username, '@') !== false) {
+	 $this->db->where('savsoft_users.email', $username);
+	}else{
+	 $this->db->where('savsoft_users.wp_user', $username);
+	}
+	
+	// $this -> db -> where('savsoft_users.verify_code', '0');
+	 $this -> db -> join('savsoft_group', 'savsoft_users.gid=savsoft_group.gid');
+   $this->db->limit(1);
+	 $query = $this -> db -> get('savsoft_users');
+			  
+	if($query -> num_rows() == 1){
+		 $user=$query->row_array();
+		 if(password_verify($password, $user['password'])){
+				if($user['verify_code']=='0'){
+					if($user['user_status']=='Active'){
+					 return array('status'=>'1','user'=>$user);
+				 }else{
+					 return array('status'=>'3','message'=>$this->lang->line('account_inactive'));
+				 }
+			 }else{
+				 return array('status'=>'2','message'=>$this->lang->line('email_not_verified'));
+			 }
+		 }else{
+			 return array('status'=>'0','message'=>$this->lang->line('invalid_login'));		
+		 }
    
-   // $this -> db -> where('savsoft_users.verify_code', '0');
-    $this -> db -> join('savsoft_group', 'savsoft_users.gid=savsoft_group.gid');
-  $this->db->limit(1);
-    $query = $this -> db -> get('savsoft_users');
-			 
-   if($query -> num_rows() == 1)
-   {
-   $user=$query->row_array();
-   if($user['verify_code']=='0'){
-   
-   if($user['user_status']=='Active'){
-   
-        return array('status'=>'1','user'=>$user);
-        }else{
-        return array('status'=>'3','message'=>$this->lang->line('account_inactive'));
-        
-        
-        }
-        
-        }else{
-        return array('status'=>'2','message'=>$this->lang->line('email_not_verified'));
-        
-        }
-  
-   }
+	}
+	else{
+	  return array('status'=>'0','message'=>$this->lang->line('invalid_login'));
+	}
+  }
    else
    {
      return array('status'=>'0','message'=>$this->lang->line('invalid_login'));
@@ -313,7 +314,7 @@ return $revenue;
 	 
 		$userdata=array(
 		'email'=>$this->input->post('email'),
-		'password'=>md5($this->input->post('password')),
+		'password'=>password_hash($this->input->post('password'), PASSWORD_BCRYPT),
 		'first_name'=>$this->input->post('first_name'),
 		'last_name'=>$this->input->post('last_name'),
 		'contact_no'=>$this->input->post('contact_no'),
@@ -336,7 +337,7 @@ return $revenue;
 	 
 		$userdata=array(
 		'email'=>$this->input->post('email'),
-		'password'=>md5($this->input->post('password')),
+		'password'=>password_hash($this->input->post('password'), PASSWORD_BCRYPT),
 		'first_name'=>$this->input->post('first_name'),
 		'last_name'=>$this->input->post('last_name'),
 		'contact_no'=>$this->input->post('contact_no'),
@@ -454,7 +455,7 @@ $new_password=rand('1111','9999');
 			
 			}else{
 			$user_detail=array(
-			'password'=>md5($new_password)
+			'password'=>password_hash($new_password, PASSWORD_BCRYPT)
 			);
 			$this->db->where('email', $toemail);
  			$this->db->update('savsoft_users',$user_detail);
@@ -486,7 +487,7 @@ $new_password=rand('1111','9999');
 			}
 			
 		if($this->input->post('password')!=""){
-			$userdata['password']=md5($this->input->post('password'));
+			$userdata['password']=password_hash($this->input->post('password'), PASSWORD_BCRYPT);
 		}
 		if($this->input->post('user_status')){
 			$userdata['user_status']=$this->input->post('user_status');

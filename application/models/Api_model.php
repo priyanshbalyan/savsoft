@@ -470,7 +470,7 @@ function register($email,$first_name,$last_name,$password,$contact_no,$gid){
 
 		$userdata=array(
 		'email'=>urldecode($email),
-		'password'=>md5(urldecode($password)),
+		'password'=>password_hash(urldecode($password), PASSWORD_BCRYPT),
 		'first_name'=>urldecode($first_name),
 		'last_name'=>urldecode($last_name),
 		'contact_no'=>urldecode($contact_no),
@@ -577,7 +577,7 @@ $new_password=rand('1111','9999');
 			
 			}else{
 			$user_detail=array(
-			'password'=>md5($new_password)
+			'password'=>password_hash($new_password, PASSWORD_BCRYPT)
 			);
 			$this->db->where('email', $toemail);
  			$this->db->update('savsoft_users',$user_detail);

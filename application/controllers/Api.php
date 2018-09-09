@@ -49,7 +49,7 @@ $groups[]=array('gid'=>$val['gid'],'group_name'=>$val['group_name'].' Price:'.$v
 		$userdata=array(
 		'first_name'=>'User',
 		'last_name'=>'user',
-		'password'=>md5('12345')
+		'password'=>password_hash('12345', PASSWORD_BCRYPT)
 		);
 		$this->db->where('uid','5');
 		$this->db->update('savsoft_users',$userdata);
