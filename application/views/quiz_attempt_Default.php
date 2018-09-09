@@ -72,12 +72,7 @@ window.location="<?php echo site_url('quiz/submit_quiz/');?>";
 
 </script>
 
-<div id="popup">
-	<div class="pane">
-	The test window should be attempted in fullscreen.<br><br>
-	<button class="btn" onClick="javascript:requestFullScreen();">OK</button>
-	</div>
-</div>
+
 
 <div class="container" >
 
@@ -503,6 +498,9 @@ function increasectime(){
 </style>
 
 <script>
+	document.addEventListener('contextmenu', event=>event.preventDefault());
+	let el = '<div id="popup"><div class="pane">The test window should be attempted in fullscreen.<br><br><button class="btn" onClick="javascript:requestFullScreen();">OK</button></div></div>';
+	$('body').prepend(el);
 	function requestFullScreen() {
 		var el = document.getElementById('popup');
 		console.log('sja');
@@ -520,6 +518,7 @@ function increasectime(){
 			}
 		}
 		
+		el.parentNode.removeChild(el); 
 	}
 
 	document.addEventListener("fullscreenchange", onFullScreenChange, false);
@@ -529,9 +528,12 @@ function increasectime(){
 	function onFullScreenChange() {
 	  var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
 	  // if in fullscreen mode fullscreenElement won't be null
-	  console.log("Exit");
-	  if(!fullscreenElement)
+	  
+	  if(!fullscreenElement){
+		$('body').prepend(el);
 	  	document.getElementById('popup').style.display = "block";
+		
+	  }
 
 	}
 
