@@ -499,8 +499,8 @@ function increasectime(){
 
 <script>
 	document.addEventListener('contextmenu', event=>event.preventDefault());
-	let el = '<div id="popup"><div class="pane">The test window should be attempted in fullscreen.<br><br><button class="btn" onClick="javascript:requestFullScreen();">OK</button></div></div>';
-	$('body').prepend(el);
+	let ele = '<div id="popup"><div class="pane">The test window should be attempted in fullscreen.<br><br><button class="btn" onClick="javascript:requestFullScreen();">OK</button></div></div>';
+	$('body').prepend(ele);
 	function requestFullScreen() {
 		var el = document.getElementById('popup');
 		console.log('sja');
@@ -528,11 +528,10 @@ function increasectime(){
 	function onFullScreenChange() {
 	  var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
 	  // if in fullscreen mode fullscreenElement won't be null
-	  
 	  if(!fullscreenElement){
-		$('body').prepend(el);
+		console.log('fullscreen out');
+		$('body').prepend(ele);
 	  	document.getElementById('popup').style.display = "block";
-		
 	  }
 
 	}
