@@ -466,4 +466,73 @@ function increasectime(){
 <a href="javascript:submit_quiz();"   class="btn btn-info"  style="cursor:pointer;"><?php echo $this->lang->line('submit_quiz');?></a>
 
 </center>
+	<div id="popup">
+		<div class="pane">
+		Test will be now fullscreen<br><br>
+		<button class="btn" onClick="javascript:requestFullScreen();">OK</button>
+		</div>
+	</div>
 </div>
+
+<style>
+	#popup{
+		position:absolute;
+		width:100%;
+		height:100%;
+		z-index:999;
+		background-color:rgba(0,0,0,0.5);
+		color:white;
+		font-family:"sans-serif";
+		font-size:1.5em;
+	}
+	.pane{
+		margin-left:auto;
+		margin-right:auto;
+		margin-top:200px;
+		padding:20px;
+		width:300px;
+		height:100px;
+		beckground-color:black;
+	}
+
+	*:fullscreen, *:-webkit-full-screen, *:-moz-full-screen {
+    	background-color: rgba(255,255,255,0) !important;
+	}
+
+}
+</style>
+
+<script>
+	function requestFullScreen() {
+		var el = document.getElementById('popup');
+		console.log('sja');
+		el.style.display = "none";
+		// Supports most browsers and their versions.
+		var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen;
+		if (requestMethod) {
+			// Native full screen.
+			requestMethod.call(el);
+		} else if (typeof window.ActiveXObject !== "undefined") {
+			// Older IE.
+			var wscript = new ActiveXObject("WScript.Shell");
+			if (wscript !== null) {
+				wscript.SendKeys("{F11}");
+			}
+		}
+		
+	}
+
+	document.addEventListener("fullscreenchange", onFullScreenChange, false);
+	document.addEventListener("webkitfullscreenchange", onFullScreenChange, false);
+	document.addEventListener("mozfullscreenchange", onFullScreenChange, false);
+
+	function onFullScreenChange() {
+	  var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
+	  // if in fullscreen mode fullscreenElement won't be null
+	  console.log("Exit");
+	  if(!fullscreenElement)
+	  	document.getElementById('popup').style.display = "block";
+
+	}
+
+</script>
