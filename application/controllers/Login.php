@@ -305,7 +305,7 @@ class Login extends CI_Controller {
                     $query=$this->db->get('savsoft_users');
                     if($query->num_rows()==0){
                     $userdata=array(
-                    'password'=>md5($pass),
+                    'password'=>password_hash($pass, PASSWORD_BCRYPT),
                     'wp_user'=>$user,
                     'su'=>0,
                     'gid'=>$this->config->item('default_group')                  
