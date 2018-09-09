@@ -72,7 +72,12 @@ window.location="<?php echo site_url('quiz/submit_quiz/');?>";
 
 </script>
 
-
+<div id="popup">
+	<div class="pane">
+	The test window should be attempted in fullscreen.<br><br>
+	<button class="btn" onClick="javascript:requestFullScreen();">OK</button>
+	</div>
+</div>
 
 <div class="container" >
 
@@ -466,12 +471,7 @@ function increasectime(){
 <a href="javascript:submit_quiz();"   class="btn btn-info"  style="cursor:pointer;"><?php echo $this->lang->line('submit_quiz');?></a>
 
 </center>
-	<div id="popup">
-		<div class="pane">
-		Test will be now fullscreen<br><br>
-		<button class="btn" onClick="javascript:requestFullScreen();">OK</button>
-		</div>
-	</div>
+	
 </div>
 
 <style>
