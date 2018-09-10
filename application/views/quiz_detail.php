@@ -60,14 +60,13 @@ if($quiz['camera_req']==1 && $this->config->item('webcam')==true){
 		
 		function upload_photo(){
 		Webcam.snap( function(data_uri) {
-
-    Webcam.upload( data_uri, '<?php echo site_url('quiz/upload_photo');?>',function(code, text) {
-        // Upload complete!
-        // 'code' will be the HTTP response code from the server, e.g. 200
-        // 'text' will be the raw response content
-	 document.getElementById('quiz_detail').submit();
-    });
-	});
+			Webcam.upload( data_uri, '<?php echo site_url('quiz/upload_photo');?>',function(code, text) {
+				// Upload complete!
+				// 'code' will be the HTTP response code from the server, e.g. 200
+				// 'text' will be the raw response content
+			document.getElementById('quiz_detail').submit();
+			});
+		});
 	
 	}
 	

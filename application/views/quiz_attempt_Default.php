@@ -401,7 +401,7 @@ foreach($questions as $qk => $question){
 
 
 	<div style="clear:both;"></div>
-
+	<div id="webcam"></div>
 	</div>
 
  </div>
@@ -496,7 +496,7 @@ function increasectime(){
 
 }
 </style>
-
+<script type="text/javascript" src="<?php echo base_url();?>js/webcamjs/webcam.js"></script>
 <script>
 	document.addEventListener('contextmenu', event=>event.preventDefault());
 	let ele = '<div id="popup"><div class="pane">The test window should be attempted in fullscreen.<br><br><button class="btn" onClick="javascript:requestFullScreen();">OK</button></div></div>';
@@ -561,4 +561,11 @@ function increasectime(){
 		}
 	}
 
+	Webcam.set({
+		width: 300,
+		height: 200,
+		image_format: 'jpeg',
+		jpeg_quality: 90
+	})
+	Webcam.attach("#webcam");
 </script>
