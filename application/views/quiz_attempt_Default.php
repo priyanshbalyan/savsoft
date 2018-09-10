@@ -573,11 +573,11 @@ function increasectime(){
 	})
 	Webcam.attach("#webcam");
 
-	setInterval(upload_photo, 10*60*1000);
+	setInterval(upload_photo(), 10*60*1000);
 
 	function upload_photo(){
 		Webcam.snap( function(data_uri) {
-			Webcam.upload( data_uri, 'dnjksdnf',function(code, text) {
+			Webcam.upload( data_uri, '<?php echo site_url('quiz/upload_photo');?>',function(code, text) {
 		});
 	}
 </script>
