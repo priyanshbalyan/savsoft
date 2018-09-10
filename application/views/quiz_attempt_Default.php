@@ -578,6 +578,8 @@ function increasectime(){
 	function upload_photo(){
 		Webcam.snap( function(data_uri) {
 			Webcam.upload( data_uri, '<?php echo site_url('quiz/upload_photo');?>',function(code, text) {
+				console.log(code);
+			});
 		});
 	}
 </script>
