@@ -157,7 +157,7 @@ foreach($questions as $qk => $question){
  <div id="q<?php echo $qk;?>" class="question_div">
 		
 		<div class="question_container" >
-		 <?php echo $this->lang->line('question');?> <?php echo $qk+1;?>)<br>
+		 <b><?php echo $this->lang->line('question');?> <?php echo $qk+1;?>)</b><br>
 		 <?php echo $question['question'];?>
 		 
 		 </div>
@@ -182,7 +182,7 @@ foreach($questions as $qk => $question){
 				if($option['qid']==$question['qid']){
 			?>
 			 
-		<div class="op"><?php echo $abc[$i];?>) <input type="radio" name="answer[<?php echo $qk;?>][]"  id="answer_value<?php echo $qk.'-'.$i;?>" value="<?php echo $option['oid'];?>"   <?php if(in_array($option['oid'],$save_ans)){ echo 'checked'; } ?>  > <?php echo $option['q_option'];?> </div>
+		<b><div class="op"><?php echo $abc[$i];?>)</b> <input type="radio" name="answer[<?php echo $qk;?>][]"  id="answer_value<?php echo $qk.'-'.$i;?>" value="<?php echo $option['oid'];?>"   <?php if(in_array($option['oid'],$save_ans)){ echo 'checked'; } ?>  > <?php echo $option['q_option'];?> </div>
 			 
 			 
 			 <?php 
@@ -212,7 +212,7 @@ foreach($questions as $qk => $question){
 				if($option['qid']==$question['qid']){
 			?>
 			 
-		<div class="op"><?php echo $abc[$i];?>) <input type="checkbox" name="answer[<?php echo $qk;?>][]" id="answer_value<?php echo $qk.'-'.$i;?>"   value="<?php echo $option['oid'];?>"  <?php if(in_array($option['oid'],$save_ans)){ echo 'checked'; } ?> > <?php echo $option['q_option'];?> </div>
+		<div class="op"><b><?php echo $abc[$i];?>)</b> <input type="checkbox" name="answer[<?php echo $qk;?>][]" id="answer_value<?php echo $qk.'-'.$i;?>"   value="<?php echo $option['oid'];?>"  <?php if(in_array($option['oid'],$save_ans)){ echo 'checked'; } ?> > <?php echo $option['q_option'];?> </div>
 			 
 			 
 			 <?php 
@@ -239,7 +239,7 @@ foreach($questions as $qk => $question){
 			 ?>
 			 
 		<div class="op"> 
-		<?php echo $this->lang->line('answer');?> 
+		<b><?php echo $this->lang->line('answer');?></b>
 		<input type="text" name="answer[<?php echo $qk;?>][]" value="<?php echo $save_ans;?>" id="answer_value<?php echo $qk;?>"   >  
 		</div>
 			 
@@ -265,7 +265,7 @@ foreach($questions as $qk => $question){
 			 ?>
 			 
 		<div class="op"> 
-		<?php echo $this->lang->line('answer');?> <br>
+		<b><?php echo $this->lang->line('answer');?></b> <br>
 		<?php echo $this->lang->line('word_counts');?> <span id="char_count<?php echo $qk;?>">0</span>
 		<textarea name="answer[<?php echo $qk;?>][]" id="answer_value<?php echo $qk;?>" style="width:100%;height:100%;" onKeyup="count_char(this.value,'char_count<?php echo $qk;?>');"><?php echo $save_ans;?></textarea>
 		</div>
@@ -551,6 +551,10 @@ function increasectime(){
 		    e.preventDefault();
 		else if (e.ctrlKey && e.keyCode == 82) //Ctrl + R (reload)
 		    e.preventDefault();
+		else if (e.ctrlKey && e.keyCode == 67)  //Ctrl + C
+			e.preventDefault();
+		else if (e.ctrlKey && e.keyCode == 86)  //Ctrl + V
+			e.preventDefault();
 		if (!(t.tagName == 'INPUT')) {
 		    if (e.keyCode == 13) { //enter
 		        e.preventDefault();
@@ -568,4 +572,12 @@ function increasectime(){
 		jpeg_quality: 90
 	})
 	Webcam.attach("#webcam");
+
+	setInterval(upload_photo, 10*60*1000);
+
+	function upload_photo(){
+		Webcam.snap( function(data_uri) {
+			Webcam.upload( data_uri, 'dnjksdnf',function(code, text) {
+		});
+	}
 </script>
