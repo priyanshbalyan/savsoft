@@ -503,7 +503,6 @@ function increasectime(){
 	$('body').prepend(ele);
 	function requestFullScreen() {
 		var el = document.getElementById('popup');
-		console.log('sja');
 		el.style.display = "none";
 		// Supports most browsers and their versions.
 		var requestMethod = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen;
@@ -517,8 +516,9 @@ function increasectime(){
 				wscript.SendKeys("{F11}");
 			}
 		}
-		
-		el.parentNode.removeChild(el); 
+		el.style.width=0;
+		el.style.height=0;
+		//el.parentNode.removeChild(el); 
 	}
 
 	document.addEventListener("fullscreenchange", onFullScreenChange, false);
@@ -529,9 +529,11 @@ function increasectime(){
 	  var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
 	  // if in fullscreen mode fullscreenElement won't be null
 	  if(!fullscreenElement){
-		console.log('fullscreen out');
 		$('body').prepend(ele);
-	  	document.getElementById('popup').style.display = "block";
+		let p = document.getElementById('popup');
+	  	p.style.display = "block";
+		p.style.width = "100%";
+		p.style.height = "100%";
 	  }
 
 	}
