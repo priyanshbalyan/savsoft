@@ -523,6 +523,7 @@ function increasectime(){
 	document.addEventListener("webkitfullscreenchange", onFullScreenChange, false);
 	document.addEventListener("mozfullscreenchange", onFullScreenChange, false);
 	
+	let warnings = 0;
 	function onFullScreenChange() {
 	  var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
 	  // if in fullscreen mode fullscreenElement won't be null
