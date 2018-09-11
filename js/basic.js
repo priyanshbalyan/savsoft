@@ -531,13 +531,6 @@
      }, 3000);
  }
 
- function auto_submit_quiz() {
-     save_answer(qn);
-     setIndividual_time(qn);
-     window.location = base_url + "index.php/quiz/submit_quiz/";
-
- }
-
 
  function switch_category(c_k) {
 

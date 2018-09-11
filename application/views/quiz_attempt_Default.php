@@ -401,7 +401,7 @@ foreach($questions as $qk => $question){
 
 
 	<div style="clear:both;"></div>
-	<div id="my_photo"></div>
+	<div id="webcam"></div>
 	</div>
 
  </div>
@@ -463,7 +463,7 @@ function increasectime(){
 <span id="processing"></span>
 
 <a href="javascript:cancelmove();"   class="btn btn-danger"  style="cursor:pointer;"><?php echo $this->lang->line('cancel');?></a> &nbsp; &nbsp; &nbsp; &nbsp;
-<a href="javascript:submit_quiz();"   class="btn btn-info"  style="cursor:pointer;"><?php echo $this->lang->line('submit_quiz');?></a>
+<a href="javascript:submit_quiz();"  id="r-submit" class="btn btn-info"  style="cursor:pointer;"><?php echo $this->lang->line('submit_quiz');?></a>
 
 </center>
 	
@@ -522,13 +522,16 @@ function increasectime(){
 	document.addEventListener("fullscreenchange", onFullScreenChange, false);
 	document.addEventListener("webkitfullscreenchange", onFullScreenChange, false);
 	document.addEventListener("mozfullscreenchange", onFullScreenChange, false);
-	let warnings = 0;
+	
 	function onFullScreenChange() {
 	  var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
 	  // if in fullscreen mode fullscreenElement won't be null
 	  if(!fullscreenElement){
 		  warnings++;
-		  if(warnings >= 3) return auto_submit_quiz(); 
+		  if(warnings >= 3) {
+			  $('#r-submit').trigger('click');
+			  let msg = "<did id='popup'><div class='pane'>Submitting quiz...</div></div>";
+		  }
 		let msg = '<div id="popup"><div class="pane">The test window should be attempted in fullscreen. Do not attempt to leave fullscreen while attempting the test.<br>Warnings (Test will auto-submit on 3 warnings): '+warnings+'<br><br><button class="btn" onClick="javascript:requestFullScreen();">OK</button></div></div>';
 		$('body').prepend(msg);
 	  }
@@ -574,7 +577,7 @@ function increasectime(){
 		image_format: 'jpeg',
 		jpeg_quality: 90
 	})
-	Webcam.attach("#my_photo");
+	Webcam.attach("#webcam");
 
 	setInterval(upload_photo(), 10*60*1000);
 
