@@ -529,7 +529,7 @@ function increasectime(){
 	  if(!fullscreenElement){
 		  warnings++;
 		  if(warnings > 3) submit_quiz(); 
-		let msg = '<div id="popup"><div class="pane">The test window should be attempted in fullscreen. Do not attempt to leave fullscreen while attempting the test.<br>Warnings (Test will auto-submit on 3 warnings): '+warnings+'<br><br><button class="btn" onClick="javascript:requstFullScreen();">OK</button></div></div>';
+		let msg = '<div id="popup"><div class="pane">The test window should be attempted in fullscreen. Do not attempt to leave fullscreen while attempting the test.<br>Warnings (Test will auto-submit on 3 warnings): '+warnings+'<br><br><button class="btn" onClick="javascript:requestFullScreen();">OK</button></div></div>';
 		$('body').prepend(msg);
 	  }
 
