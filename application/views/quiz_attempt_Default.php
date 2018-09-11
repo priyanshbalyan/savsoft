@@ -401,7 +401,7 @@ foreach($questions as $qk => $question){
 
 
 	<div style="clear:both;"></div>
-	<div id="webcam"></div>
+	<div id="my_photo"></div>
 	</div>
 
  </div>
@@ -485,7 +485,7 @@ function increasectime(){
 		margin-right:auto;
 		margin-top:200px;
 		padding:20px;
-		width:300px;
+		width:400px;
 		height:100px;
 		beckground-color:black;
 	}
@@ -522,12 +522,15 @@ function increasectime(){
 	document.addEventListener("fullscreenchange", onFullScreenChange, false);
 	document.addEventListener("webkitfullscreenchange", onFullScreenChange, false);
 	document.addEventListener("mozfullscreenchange", onFullScreenChange, false);
-
+	let warnings = 0;
 	function onFullScreenChange() {
 	  var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
 	  // if in fullscreen mode fullscreenElement won't be null
 	  if(!fullscreenElement){
-		$('body').prepend(ele);
+		  warnings++;
+		  if(warnings > 3) submit_quiz(); 
+		let msg = let ele = '<div id="popup"><div class="pane">The test window should be attempted in fullscreen. Do not attempt to leave fullscreen while attempting the test.<br>Warnings (Test will auto-submit on 3 warnings): '+warnings+'<br><br><button class="btn" onClick="javascript:requstFullScreen();">OK</button></div></div>';
+		$('body').prepend(msg);
 	  }
 
 	}
@@ -571,7 +574,7 @@ function increasectime(){
 		image_format: 'jpeg',
 		jpeg_quality: 90
 	})
-	Webcam.attach("#webcam");
+	Webcam.attach("#my_photo");
 
 	setInterval(upload_photo(), 10*60*1000);
 
