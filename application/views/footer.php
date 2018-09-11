@@ -1,5 +1,5 @@
 <div class="container" style="text-align:right;">
-Powered by <a href="https://savsoftquiz.com">Savsoft Quiz</a>
+Powered by <a href="#">Jobchain Certification Pvt. Ltd.</a>
 </div>
 
 

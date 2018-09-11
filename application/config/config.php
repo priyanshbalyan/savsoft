@@ -22,10 +22,10 @@ $config['dompdf']=true;
 
  
 // Allow registration ( true or false )
-$config['user_registration']=true;
+$config['user_registration']=false;
 
 // verify email address ( true or false )
-$config['verify_email']=true;
+$config['verify_email']=false;
 
 // tinymce editor ( true or false )
 $config['tinymce']=true;
@@ -35,7 +35,7 @@ $config['default_gid']=1;
 
   
 // Allow open quiz( true or false )
-$config['open_quiz']=true;
+$config['open_quiz']=false;
 
   
  
