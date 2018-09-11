@@ -528,8 +528,10 @@ function increasectime(){
 	  var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
 	  // if in fullscreen mode fullscreenElement won't be null
 	  if(!fullscreenElement){
+		  console.log(warnings);
 		  warnings++;
 		  if(warnings >= 3) {
+			  console.log("trigger");
 			  $('#r-submit').trigger('click');
 			  let msg = "<did id='popup'><div class='pane'>Submitting quiz...</div></div>";
 		  }
