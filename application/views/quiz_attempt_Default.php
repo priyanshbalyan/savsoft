@@ -528,12 +528,14 @@ function increasectime(){
 	  var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
 	  // if in fullscreen mode fullscreenElement won't be null
 	  if(!fullscreenElement){
-		  console.log(warnings);
 		  warnings++;
+		  console.log(warnings);
 		  if(warnings >= 3) {
 			  console.log("trigger");
 			  $('#r-submit').trigger('click');
 			  let msg = "<did id='popup'><div class='pane'>Submitting quiz...</div></div>";
+			  $('body').prepend(msg);
+			  return;
 		  }
 		let msg = '<div id="popup"><div class="pane">The test window should be attempted in fullscreen. Do not attempt to leave fullscreen while attempting the test.<br>Warnings (Test will auto-submit on 3 warnings): '+warnings+'<br><br><button class="btn" onClick="javascript:requestFullScreen();">OK</button></div></div>';
 		$('body').prepend(msg);
