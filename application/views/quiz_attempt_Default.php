@@ -528,7 +528,7 @@ function increasectime(){
 	  // if in fullscreen mode fullscreenElement won't be null
 	  if(!fullscreenElement){
 		  warnings++;
-		  if(warnings > 3) submit_quiz(); 
+		  if(warnings > 3) return auto_submit_quiz(); 
 		let msg = '<div id="popup"><div class="pane">The test window should be attempted in fullscreen. Do not attempt to leave fullscreen while attempting the test.<br>Warnings (Test will auto-submit on 3 warnings): '+warnings+'<br><br><button class="btn" onClick="javascript:requestFullScreen();">OK</button></div></div>';
 		$('body').prepend(msg);
 	  }
