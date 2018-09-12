@@ -1,6 +1,13 @@
  <div class="container">
 
-   
+<ol>
+<li>Duration of the test is 2 hours and will automatically be submitted after timout.</li>
+<li>+4 marks are assigned for every correct answer and -1 for every wrong answer.</li>
+<li>The test requires the test window to be fullscreen and will automatically switch the browser window to fullscreen mode.</li>
+<li>Do not attempt to leave fullscreen mode while attempting the test. Failure in doing so will lead to the test being auto-submitted after two violations.</li>
+<li>Camera permission is required for the test to check the user's authenticity. Make sure your PC has a working webcam and kindly allow permission to use webcam while attempting the test.</li>
+</ol>
+
  <h3><?php echo $title;?></h3>
    
  

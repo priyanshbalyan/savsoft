@@ -69,8 +69,8 @@ function disableKeys(e) {
         e.preventDefault();
     else if (e.ctrlKey && e.keyCode == 86) //Ctrl + V
         e.preventDefault();
-    // else if (e.ctrlKey && e.shiftKey && e.keyCode == 73) //Ctrl + shift + I
-    //     e.preventDefault();
+    else if (e.ctrlKey && e.shiftKey && e.keyCode == 73) //Ctrl + shift + I
+        e.preventDefault();
     if (!(t.tagName == 'INPUT')) {
         if (e.keyCode == 13) { //enter
             e.preventDefault();
