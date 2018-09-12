@@ -102,13 +102,15 @@
                 </ul>
               </li>
 	
-	 
+
+	           
+		
 			 <li><a href="<?php echo site_url('liveclass');?>"><?php echo $this->lang->line('live_classroom');?></a></li>
 			 
 			  <?php  
 				if($logged_in['su']==1){
 			?>
-			 <li><a href="<?php echo site_url('payment_gateway');?>"><?php echo $this->lang->line('payment_history');?></a></li>
+			<!-- <li><a href="<?php echo site_url('payment_gateway');?>"><?php echo $this->lang->line('payment_history');?></a></li>-->
 			 
 			  <li class="dropdown" <?php if($this->uri->segment(1)=='user_group'){ echo "class='active'"; } ?> >
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $this->lang->line('setting');?> <span class="caret"></span></a>
