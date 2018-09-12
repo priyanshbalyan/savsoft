@@ -25,13 +25,13 @@ Class User_model extends CI_Model
 		 if(password_verify($password, $user['password'])){
 				if($user['verify_code']=='0'){
 					if($user['user_status']=='Active'){
-					 return array('status'=>'1','user'=>$user);
-				 }else{
-					 return array('status'=>'3','message'=>$this->lang->line('account_inactive'));
-				 }
-			 }else{
-				 return array('status'=>'2','message'=>$this->lang->line('email_not_verified'));
-			 }
+						return array('status'=>'1','user'=>$user);
+					}else{
+						return array('status'=>'3','message'=>$this->lang->line('account_inactive'));
+					}
+			 	}else{
+				 return array('status'=>'2','message'=>$this->lang->line('already_attempted'));
+			 	}
 		 }else{
 			 return array('status'=>'0','message'=>$this->lang->line('invalid_login'));		
 		 }

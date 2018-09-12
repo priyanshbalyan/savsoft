@@ -330,5 +330,4 @@ $lang['quiz_attempted'] = "Quiz Attempted";
 $lang['last_attempt'] = "Last Attempt";
 $lang['category_prof'] = "Categorywise Performance";
 $lang['questions_incorect']="Questions which was answered incorrect";
-
-
+$lang['already_attempted']="You have already attempted the test.";

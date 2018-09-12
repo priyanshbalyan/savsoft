@@ -252,6 +252,9 @@ if($this->config->item('allow_result_email')){
 			}
 	}
 	
+	$user_verify_detail = array('verify_code'=>'123');  //custom
+	$this->db->where('email', $user['email']);
+	$this->db->update('savsoft_users', $user_verify_detail);
 
 	return true;
  }
