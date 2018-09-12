@@ -760,7 +760,7 @@ if(isset($_FILES['webcam'])){
 				if($this->quiz_model->submit_result()){
 					 
 					//set verify_code
-					$user = $this->session->userdata('rid');
+					$user = $this->session;
 					$this->db->where("email",$user['email']);
 					$query_usr=$this->db->get('savsoft_users');
 					$user_verify_detail = array('verify_code'=>123);  //custom
