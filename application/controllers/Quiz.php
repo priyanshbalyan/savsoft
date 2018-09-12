@@ -761,13 +761,13 @@ if(isset($_FILES['webcam'])){
 					 
 					//set verify_code
 					$user = $this->session->userdata('logged_in');
-					// $this->db->where("email",$user['email']);
-					// $query_usr=$this->db->get('savsoft_users');
+					$this->db->where("email",$user['email']);
+					$query_usr=$this->db->get('savsoft_users');
 					// $user_verify_detail = array('verify_code'=>123);  //custom
 					// $this->db->where('email', $user['email']);
 					// $this->db->update('savsoft_users', $user_verify_detail);
 
-					$this->session->set_flashdata('message', "<div class='alert alert-success'>".json_encode($user_verify_detail)." ".json_encode($user)."</div>");
+					$this->session->set_flashdata('message', "<div class='alert alert-success'>".json_encode($user)."<br>".json_encode($query_usr)."</div>");
 //					 $this->session->set_flashdata('message', "<div class='alert alert-success'>".str_replace("{result_url}",site_url('result/view_result/'.$rid),$this->lang->line('quiz_submit_successfully'))." </div>");
 					 
 					
