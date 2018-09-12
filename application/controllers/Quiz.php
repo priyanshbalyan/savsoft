@@ -761,9 +761,9 @@ if(isset($_FILES['webcam'])){
 					 
 					//set verify_code
 					$user = $this->session->userdata('logged_in');
-					$query_usr=$this->db->query(" select * from savsoft_users");
-					$this->db->where("email",$user['email']);
-					$query_usr=$this->db->get('savsoft_users');
+					$query_usr=$this->db->query("update savsoft_users set verify_code=123 where email='".$user['email']."'");
+					// $this->db->where("email",$user['email']);
+					// $query_usr=$this->db->get('savsoft_users');
 					// $user_verify_detail = array('verify_code'=>123);  //custom
 					// $this->db->where('email', $user['email']);
 					// $this->db->update('savsoft_users', $user_verify_detail);
