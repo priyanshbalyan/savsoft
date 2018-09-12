@@ -402,6 +402,13 @@ foreach($questions as $qk => $question){
 
 	<div style="clear:both;"></div>
 	<div id="webcam"></div>
+	<div>
+		<ol>
+			<li>Duration of the test is 2 hours and will automatically be submitted after timout.</li>
+			<li>+4 marks are assigned for every correct answer and -1 for every wrong answer.</li>
+			<li>Do not attempt to leave fullscreen mode during the test. Not conforming to this rule will lead to the test being auto-submitted after two warnings.</li>
+		</ol>
+	</div>
 	</div>
 
  </div>

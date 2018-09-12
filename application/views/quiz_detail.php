@@ -1,12 +1,15 @@
  <div class="container">
 
-<ol>
-<li>Duration of the test is 2 hours and will automatically be submitted after timout.</li>
-<li>+4 marks are assigned for every correct answer and -1 for every wrong answer.</li>
-<li>The test requires the test window to be fullscreen and will automatically switch the browser window to fullscreen mode.</li>
-<li>Do not attempt to leave fullscreen mode while attempting the test. Failure in doing so will lead to the test being auto-submitted after two violations.</li>
-<li>Camera permission is required for the test to check the user's authenticity. Make sure your PC has a working webcam and kindly allow permission to use webcam while attempting the test.</li>
-</ol>
+	<ol>
+		<li>You are required to comply with the directions given by the head invigilator at the examination venue.</li>
+		<li>Your student identity card or Aadhar Card must be visible on your desk during the entire examination (Student ID App with photo is not valid as identification).</li>
+		<li>You must only use paper handed out at the examination venue. Other paper or notebooks are not permitted. Use your own pens.</li>
+		<li>At a digital examination, it is your responsibility to submit your exam paper electronically. Before you leave the examination venue you MUST contact the head invigilator to register/confirm that you have submitted your examination.</li>
+		<li>Maximum marks for this test is 400. (+4 marks for every correct answer and -1 for every wrong answer)</li>
+		<li>There are 100 questions divided into 4 sections.</li>
+		<li>Ques 1-25 (Logical reasoning), 26-50 (Quantative aptitude), 51- 75(English Proficiency), 76-100 (IT sector)</li>
+		<li>Duration of test is 2 hours and automatically submited at the end of time.</li>
+	</ol>
 
  <h3><?php echo $title;?></h3>
    
