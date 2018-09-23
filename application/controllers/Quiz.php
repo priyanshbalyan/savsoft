@@ -712,28 +712,25 @@ function open_quiz($limit='0'){
  
  
  function upload_photo(){
-				// redirect if not loggedin
-		if(!$this->session->userdata('logged_in')){
-			redirect('login');
-			
-		}
-		$logged_in=$this->session->userdata('logged_in');
-		if($logged_in['base_url'] != base_url()){
+			// redirect if not loggedin
+	if(!$this->session->userdata('logged_in')){
+		redirect('login');	
+	}
+	
+	$logged_in=$this->session->userdata('logged_in');
+	if($logged_in['base_url'] != base_url()){
 		$this->session->unset_userdata('logged_in');		
 		redirect('login');
-		}
+	}
 
-		
-		
-if(isset($_FILES['webcam'])){
-			$targets = 'photo/';
-			$filename=time().'.jpg';
-			$targets = $targets.''.$filename;
-			if(move_uploaded_file($_FILES['webcam']['tmp_name'], $targets)){
-			
-				$this->session->set_flashdata('photoname', $filename);
-				}
-				}
+	if(isset($_FILES['webcam'])){
+		$targets = 'photo/';
+		$filename=time().'.jpg';
+		$targets = $targets.''.$filename;
+		if(move_uploaded_file($_FILES['webcam']['tmp_name'], $targets)){	
+			$this->session->set_flashdata('photoname', $filename);
+		}
+	}
 }
 
 
