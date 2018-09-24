@@ -728,6 +728,7 @@ function open_quiz($limit='0'){
 		$filename=time().'.jpg';
 		$targets = $targets.''.$filename;
 		if(move_uploaded_file($_FILES['webcam']['tmp_name'], $targets)){	
+			$this->session->set_flashdata('message', "<div class='alert alert-success'>".json_encode($this->session->userdata('logged_in'))."</div>");
 			$this->session->set_flashdata('photoname', $filename);
 		}
 	}
