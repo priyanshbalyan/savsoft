@@ -331,3 +331,6 @@ $lang['last_attempt'] = "Last Attempt";
 $lang['category_prof'] = "Categorywise Performance";
 $lang['questions_incorect']="Questions which was answered incorrect";
 $lang['already_attempted']="You have already attempted the test.";
+$lang['hello'] = "Hello";
+$lang['user_id'] = "User id";
+$lang['notattempted'] = "Not Attempted";
