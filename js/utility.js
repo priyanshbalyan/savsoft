@@ -34,7 +34,7 @@ function onFullScreenChange() {
         if (warnings >= 3) {
             let msg = "<did id='popup'><div class='pane'>Submitting quiz...</div></div>";
             setTimeout(function() {
-                window.location = base_url + "/index.php/quiz/submit_quiz";
+                window.location = base_url + "index.php/quiz/submit_quiz";
                 console.log("timeout")
             }, 2000);
             $('body').prepend(msg);
