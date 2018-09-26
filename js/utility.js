@@ -24,14 +24,16 @@ document.addEventListener("fullscreenchange", onFullScreenChange, false);
 document.addEventListener("webkitfullscreenchange", onFullScreenChange, false);
 document.addEventListener("mozfullscreenchange", onFullScreenChange, false);
 
-let warnings = 0;
+let xzcf = parseInt(localStorage.getItem('xzcf'));
+xzcf = isNaN(xzcf) ? 0 : xzcf;
 
 function onFullScreenChange() {
     var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement;
     // if in fullscreen mode fullscreenElement won't be null
     if (!fullscreenElement) {
-        warnings++;
-        if (warnings >= 3) {
+        xzcf++;
+        localStorage.setItem('xzcf', xzcf);
+        if (xzcf >= 3) {
             let msg = "<did id='popup'><div class='pane'>Submitting quiz...</div></div>";
             setTimeout(function() {
                 window.location = base_url + "index.php/quiz/submit_quiz";

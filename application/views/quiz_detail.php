@@ -84,6 +84,8 @@ if($quiz['camera_req']==1 && $this->config->item('webcam')==true){
 		 
 		void(take_snapshot());upload_photo(); 
 	 }
+
+	 localStorage.setItem('xzcf', 0);
 	</script>
 	
 	<button class="btn btn-success" type="button" onClick="javascript:capturephoto();"><?php echo $this->lang->line('capture_start_quiz');?></button>
