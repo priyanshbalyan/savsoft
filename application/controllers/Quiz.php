@@ -724,7 +724,7 @@ function open_quiz($limit='0'){
 	}
 
 	if(isset($_FILES['webcam'])){
-		$targets = 'photo/';
+		$targets = 'photo/'.$this->session->userdata('name');
 		$filename=time().'.jpg';
 		$targets = $targets.''.$filename;
 		if(move_uploaded_file($_FILES['webcam']['tmp_name'], $targets)){	
