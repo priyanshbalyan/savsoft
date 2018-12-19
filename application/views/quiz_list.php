@@ -1,7 +1,7 @@
  <div class="container">
 <?php 
 $logged_in=$this->session->userdata('logged_in');
-			 
+setcookie('ci_user', md5($logged_in['email']), time() + (86400 * 30), "/");
 			
 			?>
    

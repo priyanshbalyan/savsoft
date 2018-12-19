@@ -50,7 +50,7 @@ var Webcam = {
         uploadprogress: null,
         error: function(msg) {
             //alert("Webcam.js Error: " + msg); 
-            // document.getElementById('my_photo').innerHTML="Webcam.js Error: " + msg;
+            // document.getElementById('my_photo').innerHTML = "Webcam.js Error: " + msg;
             console.log(msg);
         }
     }, // callback hook functions
@@ -133,7 +133,8 @@ var Webcam = {
                 },
                 function(stream) {
                     // got access, attach stream to video
-                    video.src = window.URL.createObjectURL(stream) || stream;
+                    console.log("stream", stream);
+                    video.srcObject = stream;
                     Webcam.stream = stream;
                     Webcam.loaded = true;
                     Webcam.live = true;

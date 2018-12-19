@@ -95,7 +95,7 @@ $lang['status'] = "Status";
 $lang['percentage_obtained'] = "Percentage";
 $lang['percentile_obtained'] = "Percentile";
 $lang['score_obtained'] = "Score";
-$lang['quiz_submit_successfully'] = "Quiz submitted successfully! <a href='{result_url}'>Click here</a> to view result";
+$lang['quiz_submit_successfully'] = "Quiz submitted successfully!";
 $lang['error_to_submit'] = "Unable to submit quiz";
 $lang['save_next'] = "Save & Next";
 $lang['add_new'] = "Add new";
