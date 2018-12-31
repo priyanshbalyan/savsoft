@@ -1,14 +1,15 @@
  <div class="container">
 
 	<ol>
-		<li>You are required to comply with the directions given by the head invigilator at the examination venue.</li>
-		<li>Your student identity card or Aadhar Card must be visible on your desk during the entire examination (Student ID App with photo is not valid as identification).</li>
-		<li>You must only use paper handed out at the examination venue. Other paper or notebooks are not permitted. Use your own pens.</li>
-		<li>At a digital examination, it is your responsibility to submit your exam paper electronically. Before you leave the examination venue you MUST contact the head invigilator to register/confirm that you have submitted your examination.</li>
-		<li>Maximum marks for this test is 400. (+4 marks for every correct answer and -1 for every wrong answer)</li>
-		<li>There are 100 questions divided into 4 sections.</li>
-		<li>Ques 1-25 (Logical reasoning), 26-50 (Quantative aptitude), 51- 75(English Proficiency), 76-100 (IT sector)</li>
-		<li>Duration of test is 2 hours and automatically submited at the end of time.</li>
+		<li>Allow camera while starting quiz.</li>
+        <li>You will be monitored through webcam during the exam, So don't do any suspicious activity that can let you debarred from the exam(No other person should be captured , Don't use any electronic device)</li>
+        <li> Login the system 15 mins. before the test timing (10:45 AM) </li>
+        <li>You will get your scorecard after 7-15 days through mail.</li>
+	    <li>Maximum marks for this test is 400. (+4 marks for every correct answer and -1 for every wrong answer)</li>
+        <li>There are 100 questions divided into 4 sections.</li>
+	    <li>Ques 1-25 (Logical reasoning), 26-50 (Quantative aptitude), 51- 75(English Proficiency), 76-100 (Domain)</li>
+        <li>Duration of test is 2 hours and automatically submited at the end of time.</li>
+        <li> In case of any problem, Contact to head office immediately.</li>    
 	</ol>
 
  <h3><?php echo $title;?></h3>
@@ -51,7 +52,7 @@ if($quiz['camera_req']==1 && $this->config->item('webcam')==true){
 <div style="color:#ff0000;"><?php echo $this->lang->line('camera_instructions');?></div>
 <div id="my_photo" style="width:500px;height:500px;background:#212121;padding:2px;border:1px solid #666666;color:red"></div>
 <br><br>
-<script type="text/javascript" src="<?php echo base_url();?>js/webcamjs/webcam.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>js/webcamjs/webcam.js?v=1.01"></script>
 	<script language="JavaScript">
 		Webcam.set({
 			width: 500,

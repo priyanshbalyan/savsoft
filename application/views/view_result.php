@@ -289,7 +289,7 @@ $cia_tim_cate=cia_tim_cate($correct_incorrect_unattempted,explode(",",$result['i
 if($result['view_answer']=='1' || $logged_in['su']=='1'){
 	
 ?>
-<a href="#answers_i" class="btn btn-info" style="margin-top:10px;"><?php echo $this->lang->line('answer_sheet');?></a>
+<a href="#answers_i" class="btn btn-info noprint" style="margin-top:10px;"><?php echo $this->lang->line('answer_sheet');?></a>
 <?php 
 }
 ?>
@@ -368,7 +368,7 @@ if($result['camera_req']=='1'){
 <tr><td><?php echo $this->lang->line('attempt_time');?></td><td><?php echo date('Y-m-d H:i:s',$result['start_time']);?></td></tr>
 <tr><td><?php echo $this->lang->line('time_spent');?></td><td><?php echo secintomin($result['total_time']);?></td></tr>
 <tr><td><?php echo $this->lang->line('percentage_obtained');?></td><td><?php echo $result['percentage_obtained'];?>%</td></tr>
-<tr><td><?php echo $this->lang->line('percentile_obtained');?></td><td><?php echo substr(((($percentile[1]+1)/$percentile[0])*100),0,5);   ?>%</td></tr>
+<!--<tr><td><?php echo $this->lang->line('percentile_obtained');?></td><td><?php echo substr(((($percentile[1]+1)/$percentile[0])*100),0,5);   ?>%</td></tr>-->
 <tr><td><?php echo $this->lang->line('score_obtained');?></td><td><?php echo $result['score_obtained'];?></td></tr>
 <tr><td><?php echo $this->lang->line('status');?></td><td><?php echo $result['result_status'];?></td></tr>
 
@@ -560,13 +560,13 @@ if($this->config->item('google_chart') == true ){
         chart.draw(data, options);
       }
     </script>
-		 <div id="chart_div" style="width: 800px; height: 500px;"></div>
+		 <div class="noprint" id="chart_div" style="width: 800px; height: 500px;"></div>
   
 
 <!-- google chart starts -->
 
     <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
+      google.load("visualization", "1", {packages:["corechart"]});	
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable(<?php echo $qtime;?>);
@@ -579,7 +579,7 @@ if($this->config->item('google_chart') == true ){
         chart.draw(data, options);
       }
     </script>
-		 <div id="chart_div2" style="width:800px; height: 500px;"></div>
+		 <div class="noprint" id="chart_div2" style="width:800px; height: 500px;"></div>
 <!-- google chart ends -->
 
 
@@ -598,7 +598,7 @@ if($result['view_answer']=='1' || $logged_in['su']=='1'){
 	
 ?>
 
-<div class="login-panel panel panel-default">
+<div class="login-panel panel panel-default noprint">
 		<div class="panel-body"> 
 		<a name="answers_i"></a>
 <h3><?php echo $this->lang->line('answer_sheet');?></h3>

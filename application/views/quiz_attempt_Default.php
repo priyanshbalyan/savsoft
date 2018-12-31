@@ -510,15 +510,15 @@ function increasectime(){
 <script type="text/javascript" src="<?php echo base_url();?>js/webcamjs/webcam.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>js/utility.js"></script>
 <script>
-	Webcam.set({
-		width: 300,
-		height: 200,
-		image_format: 'jpeg',
-		jpeg_quality: 90
-	})
-	Webcam.attach("#webcam");
+	// Webcam.set({
+	// 	width: 300,
+	// 	height: 200,
+	// 	image_format: 'jpeg',
+	// 	jpeg_quality: 90
+	// })
+	// Webcam.attach("#webcam");
 
-	setInterval(upload_photo(), 10 * 60 * 1000);
+	// setInterval(upload_photo(), 10 * 60 * 1000);
 
 	function upload_photo() {
 		Webcam.snap(function(data_uri) {

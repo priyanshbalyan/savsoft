@@ -238,6 +238,7 @@
 
 
  function show_question(vqn) {
+     $('#nextbtn').css('visibility', 'visible');
      change_color(vqn);
      fide_all_question();
      var did = "#q" + vqn;
